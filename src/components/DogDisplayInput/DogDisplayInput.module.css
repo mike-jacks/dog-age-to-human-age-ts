@@ -1,0 +1,27 @@
+.animate-scaleXBubbleOne {
+  animation: scaleXBubbleOne 1s ease-out backwards;
+  animation-delay: 1000ms;
+}
+
+@keyframes scaleXBubbleOne {
+  0% {
+    transform: scaleX(0) scaleY(0) translateX(3.3rem) translateY(-3.25rem);
+  }
+  100% {
+    transform: scaleX(1.5) scaleY(2) translateX(3.3rem) translateY(-3.25rem);
+  }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+.delay-text-bubble {
+    animation: opacity 1s ease-out backwards;
+    animation-delay: 2000ms;
+}
