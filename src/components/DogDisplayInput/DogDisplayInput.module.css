@@ -12,16 +12,6 @@
   }
 }
 
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100;
-    }
-}
 
-.delay-text-bubble {
-    animation: opacity 1s ease-out backwards;
-    animation-delay: 2000ms;
-}
+
+
