@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# Typescript Dog Age To Human Age Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Typescript Dog Age To Human Age Calculator using React and typescript assignment.
 
-Currently, two official plugins are available:
+In this assignment, I practiced using Typescript, React, and CSS modules. I added additional functionality practicing using animation from css triggered with useState variables.## Setup to run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository to your local machine
 
-## Expanding the ESLint configuration
+   ```bash
+   git clone git@github.com:mike-jacks/dog-age-to-human-age-ts.git
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Navigate to the downloaded repository folder
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   cd dog-age-to-human-age-ts
+   ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. Run npm install
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   npm install
+   ```
+
+## Run in dev mode
+
+1. Run 'npm run dev' command to run in dev mode
+
+   ```bash
+   npm run dev
+   ```
+
+## Build and Run in preview mode
+
+1. Run 'npm run build'
+
+   ```bash
+   npm run build
+   ```
+
+2. Run 'npm run preview'
+
+   ```bash
+   npm run preview
+   ```
+
+You should now have the app running in either dev mode or preview mode locally.
