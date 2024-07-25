@@ -9,6 +9,11 @@ type DogAgeInputProps = {
   setIsOutputBubbleComplete: React.Dispatch<SetStateAction<boolean>>;
 };
 
+/**
+ *
+ * @param DogAgeInputProps - passed on useState variables/functions
+ * @returns JSX element
+ */
 export default function DogAgeInput({
   dogAgeInHumanYears,
   setDogAgeInHumanYears,
@@ -22,6 +27,9 @@ export default function DogAgeInput({
     setLocalDogAge(dogAgeInHumanYears);
   }, [dogAgeInHumanYears]);
 
+  /**
+   * Delays writing to setDogAgeInHumanYears to hold off on several renders at once.
+   */
   const debounceSetDogAge = useMemo(
     () =>
       debounce((age: string) => {

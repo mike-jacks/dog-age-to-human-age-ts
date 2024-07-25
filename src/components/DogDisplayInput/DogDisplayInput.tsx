@@ -13,6 +13,12 @@ type DogDisplayInputProps = {
   setIsInputBubbleComplete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+/**
+ * Component for the first dog display with bubble and typed text.
+ *
+ * @param DogisplayInputProps - passed through useState variables/functions
+ * @returns JSX component
+ */
 export default function DogDisplayInput({
   dogAgeInYears,
   inputPrompt,
