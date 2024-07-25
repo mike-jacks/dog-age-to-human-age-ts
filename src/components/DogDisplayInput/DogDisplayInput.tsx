@@ -1,9 +1,8 @@
 import { SetStateAction, useEffect, useState } from "react";
-import { typeOutText } from "../../functions/functions";
+import { typeOutTextString } from "../../functions/functions";
 import pugOne from "./../../assets/dog/pug_dog_1.png";
 import speechBubbleOne from "./../../assets/speech_bubble/speech_bubble_1.svg";
 import styles from "./DogDisplayInput.module.css";
-// Remove the unnecessary import statement
 
 type DogDisplayInputProps = {
   dogAgeInYears: string;
@@ -27,9 +26,9 @@ export default function DogDisplayInput({ dogAgeInYears, inputPrompt, setInputPr
   useEffect(() => {
     const typingTimeout = setTimeout(() => {
       if (debounceDogAge === "") {
-        typeOutText("How old am I in human years?", setInputPrompt);
+        typeOutTextString("How old am I in human years?", setInputPrompt);
       } else {
-        typeOutText(`I am ${debounceDogAge} in human years!`, setInputPrompt);
+        typeOutTextString(`I am ${debounceDogAge} in human years!`, setInputPrompt);
       }
     }, 1500);
 
@@ -45,7 +44,7 @@ export default function DogDisplayInput({ dogAgeInYears, inputPrompt, setInputPr
         <img
           src={speechBubbleOne}
           alt="speech bubble 1"
-          className={`${styles["animate-scaleXBubbleOne"]} absolute translate-x-[5rem] translate-y-[-6.5rem] self-stretch scale-y-[2] scale-x-[1.5]`}
+          className={`${styles["animate-scaleBubbleOne"]} absolute translate-x-[5rem] translate-y-[-6.5rem] self-stretch scale-y-[2] scale-x-[1.5]`}
         />
         <p className={`absolute text-black text-opacity-90 text-center w-[40rem] translate-y-[-7.8rem] text-[3rem]`}>{inputPrompt}</p>
       </div>

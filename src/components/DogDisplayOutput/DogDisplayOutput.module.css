@@ -1,0 +1,27 @@
+.animate-scaleInBubbleTwo {
+  animation: scaleInBubbleTwo 0.4s ease-out backwards;
+  animation-delay: 500ms;
+}
+
+.animate-scaleOutBubbleTwo {
+  animation: scaleOutBubbleTwo 0.4s ease-out forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes scaleInBubbleTwo {
+  0% {
+    transform: scaleX(0) scaleY(0) translateX(10rem) translateY(10rem);
+  }
+  100% {
+    transform: scaleX(-1.7) scaleY(1) translateX(25.5rem) translateY(10rem);
+  }
+}
+
+@keyframes scaleOutBubbleTwo {
+  0% {
+    transform: scaleX(-1.7) scaleY(1) translateX(25.5rem) translateY(10rem);
+  }
+  100% {
+    transform: scaleX(0) scaleY(0) translateX(10rem) translateY(10rem);
+  }
+}

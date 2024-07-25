@@ -5,8 +5,8 @@ import DogDisplayOutput from "../DogDisplayOutput/DogDisplayOutput";
 
 function App() {
   const [inputPrompt, setInputPrompt] = useState<string>("");
-  const [dogAgeInYears, setDogAgeInYears] = useState<string>("");
-  const [outputPrompt, setOutputPrompt] = useState<string>("");
+  const [dogAgeInHumanYears, setDogAgeInHumanYears] = useState<string>("");
+  const [outputPrompt, setOutputPrompt] = useState<React.ReactNode>("");
 
   return (
     <>
@@ -16,11 +16,11 @@ function App() {
         </header>
         <main className="flex flex-col w-[80vw] min-w-[90rem] max-w-[100rem] gap-5 border-[0.5rem] border-purple-400 rounded-2xl p-20 bg-gradient-to-br from-green-600 to-green-900 shadow-lg shadow-purple-900">
           <div className="flex gap-5 place-content-between mt-40">
-            <DogDisplayInput dogAgeInYears={dogAgeInYears} inputPrompt={inputPrompt} setInputPrompt={setInputPrompt} />
-            <DogAgeInput dogAgeInYears={dogAgeInYears} setDogAgeInYears={setDogAgeInYears} />
+            <DogDisplayInput dogAgeInYears={dogAgeInHumanYears} inputPrompt={inputPrompt} setInputPrompt={setInputPrompt} />
+            <DogAgeInput dogAgeInHumanYears={dogAgeInHumanYears} setDogAgeInHumanYears={setDogAgeInHumanYears} />
           </div>
           <div className="flex justify-end">
-            <DogDisplayOutput dogAgeInYears={dogAgeInYears} outputPrompt={outputPrompt} setOutputPrompt={setOutputPrompt} />
+            <DogDisplayOutput dogAgeInHumanYears={dogAgeInHumanYears} outputPrompt={outputPrompt} setOutputPrompt={setOutputPrompt} />
           </div>
         </main>
       </div>
