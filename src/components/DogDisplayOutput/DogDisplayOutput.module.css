@@ -8,20 +8,28 @@
   animation-delay: 500ms;
 }
 
+.hidden {
+  display: none;
+}
+
 @keyframes scaleInBubbleTwo {
   0% {
     transform: scaleX(0) scaleY(0) translateX(10rem) translateY(10rem);
+    visibility: hidden;
   }
   100% {
     transform: scaleX(-1.7) scaleY(1) translateX(25.5rem) translateY(10rem);
+    visibility: visible;
   }
 }
 
 @keyframes scaleOutBubbleTwo {
   0% {
     transform: scaleX(-1.7) scaleY(1) translateX(25.5rem) translateY(10rem);
+    visibility: visible;
   }
   100% {
     transform: scaleX(0) scaleY(0) translateX(10rem) translateY(10rem);
+    visibility: hidden;
   }
 }

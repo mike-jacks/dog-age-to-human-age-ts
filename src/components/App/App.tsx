@@ -4,9 +4,12 @@ import DogDisplayInput from "../DogDisplayInput/DogDisplayInput";
 import DogDisplayOutput from "../DogDisplayOutput/DogDisplayOutput";
 
 function App() {
-  const [inputPrompt, setInputPrompt] = useState<string>("");
+  const [inputPrompt, setInputPrompt] = useState<React.ReactNode>("");
   const [dogAgeInHumanYears, setDogAgeInHumanYears] = useState<string>("");
   const [outputPrompt, setOutputPrompt] = useState<React.ReactNode>("");
+  const [isInputDisplayComplete, setIsInputDisplayComplete] = useState<boolean>(false);
+  const [isInputBubbleComplete, setIsInputBubbleComplete] = useState<boolean>(false);
+  const [showOutputBubble, setShowOutputBubble] = useState<boolean>(false);
 
   return (
     <>
@@ -16,11 +19,31 @@ function App() {
         </header>
         <main className="flex flex-col w-[80vw] min-w-[90rem] max-w-[100rem] gap-5 border-[0.5rem] border-purple-400 rounded-2xl p-20 bg-gradient-to-br from-green-600 to-green-900 shadow-lg shadow-purple-900">
           <div className="flex gap-5 place-content-between mt-40">
-            <DogDisplayInput dogAgeInYears={dogAgeInHumanYears} inputPrompt={inputPrompt} setInputPrompt={setInputPrompt} />
-            <DogAgeInput dogAgeInHumanYears={dogAgeInHumanYears} setDogAgeInHumanYears={setDogAgeInHumanYears} />
+            <DogDisplayInput
+              dogAgeInYears={dogAgeInHumanYears}
+              inputPrompt={inputPrompt}
+              isInputDisplayComplete={isInputDisplayComplete}
+              setInputPrompt={setInputPrompt}
+              setIsInputDisplayComplete={setIsInputDisplayComplete}
+              setIsInputBubbleComplete={setIsInputBubbleComplete}
+            />
+            <DogAgeInput
+              dogAgeInHumanYears={dogAgeInHumanYears}
+              setDogAgeInHumanYears={setDogAgeInHumanYears}
+              setIsInputDisplayComplete={setIsInputDisplayComplete}
+              setShowOutputBubble={setShowOutputBubble}
+            />
           </div>
           <div className="flex justify-end">
-            <DogDisplayOutput dogAgeInHumanYears={dogAgeInHumanYears} outputPrompt={outputPrompt} setOutputPrompt={setOutputPrompt} />
+            <DogDisplayOutput
+              dogAgeInHumanYears={dogAgeInHumanYears}
+              outputPrompt={outputPrompt}
+              setOutputPrompt={setOutputPrompt}
+              isInputDisplayComplete={isInputDisplayComplete}
+              isInputBubbleComplete={isInputBubbleComplete}
+              showOutputBubble={showOutputBubble}
+              setShowOutputBubble={setShowOutputBubble}
+            />
           </div>
         </main>
       </div>

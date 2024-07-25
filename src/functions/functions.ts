@@ -1,13 +1,18 @@
-export function typeOutTextString(text: string, setInputPrompt: React.Dispatch<React.SetStateAction<string>>): void {
-  for (let i = 0; i < text.length; i++) {
-    setTimeout(() => setInputPrompt(text.slice(0, i + 1)), 70 * i);
-  }
-}
+export function typeOutDisplayText(
+  text: string,
+  setInputPrompt: React.Dispatch<React.SetStateAction<React.ReactNode>>,
+  setIsInputDisplayComplete: React.Dispatch<React.SetStateAction<boolean>>
+): void {
+  setIsInputDisplayComplete(false); // Start by setting completion to false
 
-export function typeOutTextComponent(text: string, setInputPrompt: React.Dispatch<React.SetStateAction<React.ReactNode>>): void {
   for (let i = 0; i < text.length; i++) {
-    setTimeout(() => setInputPrompt(text.slice(0, i + 1)), 70 * i);
+    setTimeout(() => {
+      setInputPrompt(text.slice(0, i + 1));
+    }, 70 * i);
   }
+
+  // Set completion state to true after typing animation ends
+  setTimeout(() => setIsInputDisplayComplete(true), 70 * text.length);
 }
 
 export function convertHumanYearsToDogYears(dogAgeInHumanYears: number, newFormula: boolean): number {
@@ -28,4 +33,17 @@ export function convertHumanYearsToDogYears(dogAgeInHumanYears: number, newFormu
   } else {
     return Math.floor(16 * Math.log(dogAgeInHumanYears) + 31);
   }
+}
+
+export function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
+  let timeoutId: number | undefined;
+
+  return function (...args: Parameters<T>) {
+    if (timeoutId !== undefined) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = window.setTimeout(() => {
+      func(...args);
+    }, delay);
+  } as T;
 }
