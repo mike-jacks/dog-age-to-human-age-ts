@@ -12,8 +12,11 @@ type DogDisplayOutputProps = {
   outputPrompt: React.ReactNode;
   setOutputPrompt: React.Dispatch<React.SetStateAction<React.ReactNode>>;
   isInputDisplayComplete: boolean;
+  isInputBubbleComplete: boolean;
   showOutputBubble: boolean;
   setShowOutputBubble: React.Dispatch<React.SetStateAction<boolean>>;
+  isOutputBubbleComplete: boolean;
+  setIsOutputBubbleComplete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function DogDisplayOutput({
@@ -23,10 +26,11 @@ export default function DogDisplayOutput({
   isInputDisplayComplete,
   showOutputBubble,
   setShowOutputBubble,
+  isOutputBubbleComplete,
+  setIsOutputBubbleComplete,
 }: DogDisplayOutputProps) {
   const [scaleBubbleAnimation, setScaleBubbleAnimation] = useState<string>(styles.hidden);
-  const [isOutputBubbleComplete, setIsOutputBubbleComplete] = useState<boolean>(false);
-  const humanAgeInDogYears = convertHumanYearsToDogYears(Number(dogAgeInHumanYears), true);
+  const humanAgeInDogYears = convertHumanYearsToDogYears(Number(dogAgeInHumanYears), false);
 
   useEffect(() => {
     if (isInputDisplayComplete && dogAgeInHumanYears !== "") {
@@ -40,9 +44,10 @@ export default function DogDisplayOutput({
     } else if (dogAgeInHumanYears === "") {
       setScaleBubbleAnimation(scaleOutBubbleTwoStyle);
       setShowOutputBubble(false);
+      setIsOutputBubbleComplete(false);
       setOutputPrompt(<></>);
     }
-  }, [dogAgeInHumanYears, isInputDisplayComplete, setOutputPrompt, setShowOutputBubble]);
+  }, [dogAgeInHumanYears, isInputDisplayComplete, setOutputPrompt, setShowOutputBubble, isOutputBubbleComplete, setIsOutputBubbleComplete]);
 
   useEffect(() => {
     if (isOutputBubbleComplete && showOutputBubble) {

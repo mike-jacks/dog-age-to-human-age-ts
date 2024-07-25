@@ -10,6 +10,7 @@ function App() {
   const [isInputDisplayComplete, setIsInputDisplayComplete] = useState<boolean>(false);
   const [isInputBubbleComplete, setIsInputBubbleComplete] = useState<boolean>(false);
   const [showOutputBubble, setShowOutputBubble] = useState<boolean>(false);
+  const [isOutputBubbleComplete, setIsOutputBubbleComplete] = useState<boolean>(false);
 
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
               setDogAgeInHumanYears={setDogAgeInHumanYears}
               setIsInputDisplayComplete={setIsInputDisplayComplete}
               setShowOutputBubble={setShowOutputBubble}
+              setIsOutputBubbleComplete={setIsOutputBubbleComplete}
             />
           </div>
           <div className="flex justify-end">
@@ -43,6 +45,8 @@ function App() {
               isInputBubbleComplete={isInputBubbleComplete}
               showOutputBubble={showOutputBubble}
               setShowOutputBubble={setShowOutputBubble}
+              isOutputBubbleComplete={isOutputBubbleComplete}
+              setIsOutputBubbleComplete={setIsOutputBubbleComplete}
             />
           </div>
         </main>

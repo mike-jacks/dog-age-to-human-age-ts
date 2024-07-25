@@ -6,13 +6,15 @@ type DogAgeInputProps = {
   setDogAgeInHumanYears: React.Dispatch<SetStateAction<string>>;
   setIsInputDisplayComplete: React.Dispatch<SetStateAction<boolean>>;
   setShowOutputBubble: React.Dispatch<SetStateAction<boolean>>;
+  setIsOutputBubbleComplete: React.Dispatch<SetStateAction<boolean>>;
 };
 
 export default function DogAgeInput({
   dogAgeInHumanYears,
   setDogAgeInHumanYears,
   setIsInputDisplayComplete,
-  setShowOutputBubble
+  setShowOutputBubble,
+  setIsOutputBubbleComplete,
 }: DogAgeInputProps) {
   const [localDogAge, setLocalDogAge] = useState(dogAgeInHumanYears);
 
@@ -25,17 +27,19 @@ export default function DogAgeInput({
       debounce((age: string) => {
         setDogAgeInHumanYears(age);
         setIsInputDisplayComplete(true); // Set completion to true after debounce delay
+        setIsOutputBubbleComplete(false);
       }, 1500),
-    [setDogAgeInHumanYears, setIsInputDisplayComplete]
+    [setDogAgeInHumanYears, setIsInputDisplayComplete, setIsOutputBubbleComplete]
   );
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
-    if (/^\d*$/.test(value)) { // Ensure input is numeric
+    if (/^\d*$/.test(value)) {
+      // Ensure input is numeric
       setLocalDogAge(value);
+      debounceSetDogAge(value); // Debounce the state update
       setIsInputDisplayComplete(false); // Immediately set to false on change
       setShowOutputBubble(false); // Reset output bubble visibility
-      debounceSetDogAge(value); // Debounce the state update
     }
   }
 
